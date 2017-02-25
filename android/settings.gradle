@@ -1,0 +1,3 @@
+rootProject.name = 'DropApp'
+
+include ':app'
