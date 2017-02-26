@@ -7,9 +7,15 @@ export default class FeedItem extends Component {
     super(props)
   }
 
+  setNativeProps(nativeProps) {
+    this._root.setNativeProps(nativeProps)
+  }
+
   render() {
     return(
-      <View style={styles.feedItemContainer}>
+      <View
+        style={styles.feedItemContainer}
+        ref={component => this._root = component}>
         <View style={styles.feedItemTitleContainer}>
           <Text style={styles.feedItemTitle}>{this.props.feed.title}</Text>
         </View>

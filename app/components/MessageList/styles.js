@@ -6,6 +6,6 @@ export default StyleSheet.create({
 
   },
   messageList: {
-    
+
   }
 })

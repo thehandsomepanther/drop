@@ -13,7 +13,7 @@ const colors = {
 }
 
 var styles = StyleSheet.create({
-  rootScene: {
+  container: {
     flex: 1,
     paddingTop: 64
   }

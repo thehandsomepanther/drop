@@ -3,8 +3,6 @@ import { colors } from '../../config/styles'
 
 export default StyleSheet.create({
   feedListContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center'
+    flex: 1
   }
 })

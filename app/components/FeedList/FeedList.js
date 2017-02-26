@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, ListView, View, Text } from 'react-native'
+import { StyleSheet, ListView, View, Text, TouchableOpacity } from 'react-native'
 import styles from './styles'
 import FeedItem from './../FeedItem'
 
@@ -23,11 +23,18 @@ export default class FeedList extends Component {
 
   render() {
     return(
-      <View style={styles.feedListContainer}>
+      <View
+        style={styles.feedListContainer}>
         <ListView
           style={styles.feedList}
           dataSource={this.state.dataSource}
-          renderRow={(feedData) => <FeedItem feed={feedData} onPress={ Actions.messagePage } />}
+          renderRow={(feedData) => {
+            return (
+              <TouchableOpacity onPress={this.props.onForward}>
+                <FeedItem feed={feedData} />
+              </TouchableOpacity>
+            )
+          }}
         />
       </View>
     )

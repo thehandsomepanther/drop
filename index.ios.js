@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
-import { AppRegistry, View, Text, Navigator, TouchableHighlight } from 'react-native'
+import { AppRegistry, View, Text, Navigator } from 'react-native'
 import { styles, colors } from './app/config/styles'
 import FeedPage from './app/layouts/FeedPage'
 import MessagePage from './app/layouts/MessagePage'
@@ -18,22 +18,52 @@ export default class DropApp extends Component {
 
     return (
       <Navigator
-        style={styles.rootScene}
+        style={styles.container}
         initialRoute={routes[0]}
         initialRouteStack={routes}
-        renderScene={(route, navigator) =>
-          <TouchableHighlight onPress={() => {
-            if (route.index === 0) {
-              navigator.push(routes[1]);
-            } else {
-              navigator.pop();
-            }
-          }}>
-          <Text>Hello {route.title}!</Text>
-          </TouchableHighlight>
-        }
+        renderScene={this.renderScene}
       />
     )
+  }
+
+  renderScene(route, navigator) {
+    if (route.title == 'Feed') {
+      return (
+        <FeedPage
+          title={route.title}
+          navigator={navigator}
+          onForward={() => {
+            const nextIndex = route.index + 1
+            navigator.push(navigator.state.routeStack[nextIndex])
+          }}
+
+          onBack={() => {
+            if (route.index > 0) {
+              navigator.pop()
+            }
+          }}
+        />
+      )
+    }
+
+    if (route.title == 'Messages') {
+      return (
+        <MessagePage
+          title={route.title}
+          navigator={navigator}
+          onForward={() => {
+            const nextIndex = route.index + 1
+            navigator.push(navigator.state.routeStack[nextIndex])
+          }}
+
+          onBack={() => {
+            if (route.index > 0) {
+              navigator.pop()
+            }
+          }}
+        />
+      )
+    }
   }
 }
 

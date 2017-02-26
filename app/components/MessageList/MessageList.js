@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { StyleSheet, ListView, View, Text } from 'react-native'
-import { Actions } from 'react-native-router-flux'
 import styles from './styles'
 import MessageItem from './../MessageItem'
 
@@ -54,9 +53,10 @@ export default class MessageList extends Component {
     return(
       <View style={styles.messageListContainer}>
         <ListView
+          removeClippedSubviews={false}
           style={styles.messageList}
           dataSource={this.state.dataSource}
-          renderRow={(messageData) => <MessageItem message={messageData} onPress={ Actions.discussionPage } />}
+          renderRow={(messageData) => <MessageItem message={messageData} />}
         />
       </View>
     )
