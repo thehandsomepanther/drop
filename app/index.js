@@ -5,6 +5,7 @@ import { styles, colors } from './config/styles'
 import FeedPage from './layouts/FeedPage'
 import MessagePage from './layouts/MessagePage'
 import DiscussionPage from './layouts/DiscussionPage'
+import StatusBar from './components/StatusBar'
 
 import { firebaseConfig } from './config/firebase'
 const firebaseApp = firebase.initializeApp(firebaseConfig)
@@ -17,12 +18,14 @@ class DropApp extends Component {
     ]
 
     return (
-      <Navigator
-        style={styles.container}
-        initialRoute={routes[0]}
-        initialRouteStack={routes}
-        renderScene={this.renderScene}
-      />
+      <View style={styles.container}>
+        <StatusBar />
+        <Navigator
+          initialRoute={routes[0]}
+          initialRouteStack={routes}
+          renderScene={this.renderScene}
+        />
+      </View>
     )
   }
 
@@ -33,8 +36,10 @@ class DropApp extends Component {
           title={route.title}
           navigator={navigator}
           onForward={() => {
-            const nextIndex = route.index + 1
-            navigator.push(navigator.state.routeStack[nextIndex])
+            if (route.index < navigator.state.routeStack.length) {
+              const nextIndex = route.index + 1
+              navigator.push(navigator.state.routeStack[nextIndex])
+            }
           }}
 
           onBack={() => {
@@ -52,8 +57,10 @@ class DropApp extends Component {
           title={route.title}
           navigator={navigator}
           onForward={() => {
-            const nextIndex = route.index + 1
-            navigator.push(navigator.state.routeStack[nextIndex])
+            if (route.index < navigator.state.routeStack.length) {
+              const nextIndex = route.index + 1
+              navigator.push(navigator.state.routeStack[nextIndex])
+            }
           }}
 
           onBack={() => {

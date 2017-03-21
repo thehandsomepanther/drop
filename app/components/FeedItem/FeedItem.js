@@ -7,10 +7,6 @@ export default class FeedItem extends Component {
     super(props)
   }
 
-  setNativeProps(nativeProps) {
-    this._root.setNativeProps(nativeProps)
-  }
-
   render() {
     return(
       <View

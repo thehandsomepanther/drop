@@ -23,20 +23,18 @@ export default class FeedList extends Component {
 
   render() {
     return(
-      <View
-        style={styles.feedListContainer}>
-        <ListView
-          style={styles.feedList}
-          dataSource={this.state.dataSource}
-          renderRow={(feedData) => {
-            return (
-              <TouchableOpacity onPress={this.props.onForward}>
-                <FeedItem feed={feedData} />
-              </TouchableOpacity>
-            )
-          }}
-        />
-      </View>
+      <ListView
+        style={styles.feedList}
+        dataSource={this.state.dataSource}
+        renderRow={(feedData) => {
+          return (
+            <TouchableOpacity
+            onPress={this.props.onForward}>
+              <FeedItem feed={feedData} />
+            </TouchableOpacity>
+          )
+        }}
+      />
     )
   }
 }

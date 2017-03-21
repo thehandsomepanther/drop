@@ -6,6 +6,7 @@ export default class FeedPage extends Component {
   render() {
     return (
       <FeedList
+        style={styles.feedList}
         onForward={this.props.onForward}
       />
     )

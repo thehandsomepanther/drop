@@ -3,7 +3,7 @@ import { colors } from '../../config/styles'
 
 export default StyleSheet.create({
   feedItemContainer: {
-    borderRadius: 4,
+    borderRadius: 8,
     height: 200,
     borderColor: colors.grey,
     borderWidth: 1,
@@ -14,13 +14,14 @@ export default StyleSheet.create({
   },
   feedItemTitleContainer: {
     height: 36,
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
     backgroundColor: colors.red,
     paddingLeft: 12
   },
   feedItemTitle: {
     lineHeight: 36,
+    width: 300,
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 16

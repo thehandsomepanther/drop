@@ -6,6 +6,7 @@ export default class MessagePage extends Component {
   render() {
     return (
       <MessageList
+        style={styles.messageList}
         onForward={this.props.onForward}
       />
     )

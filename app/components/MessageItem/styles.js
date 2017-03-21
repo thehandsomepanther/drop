@@ -6,7 +6,13 @@ export default StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
     marginTop: 12,
-    borderRadius: 4
+    borderRadius: 4,
+    shadowColor: colors.black,
+    shadowOffset: {
+      width: 0, height: 1
+    },
+    shadowOpacity: .3,
+    shadowRadius: 3
   },
   messageItemContent: {
     backgroundColor: colors.orange,
@@ -27,7 +33,9 @@ export default StyleSheet.create({
   },
   messageItemPreviewContainer: {
     backgroundColor: colors.white,
-    height: 220
+    height: 220,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8
   },
   messageItemPreview: {
 
@@ -38,6 +46,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between'
   },
   messageItemSenderContainer: {
+    marginTop: 4,
     backgroundColor: colors.orange,
     height: 32,
     borderRadius: 100,
@@ -47,9 +56,11 @@ export default StyleSheet.create({
   messageItemSender: {
     marginTop: 8,
     color: colors.white,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   messageItemRepliesContainer: {
+    marginTop: 4,
     backgroundColor: colors.orange,
     height: 32,
     borderRadius: 100,
@@ -60,6 +71,7 @@ export default StyleSheet.create({
   messageItemReplies: {
     marginTop: 8,
     color: colors.white,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
   }
 })
